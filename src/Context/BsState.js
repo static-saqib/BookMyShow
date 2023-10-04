@@ -19,18 +19,17 @@ const BsState = (props) => {
     // Sending api request to backend with user selected movie, slot and seats to book movie.
     try {
         
-        const res = await fetch(
-          "https://bookmyshow-qvw4.onrender.com/api/booking",
-          //`https://8000.onrender.com/api/booking`,
-          //"http://localhost:8000/api/booking",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
-          }
-        );
+      const res = await fetch(
+        "https://bookmyshow-qvw4.onrender.com/api/booking",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ movie: movie, slot: time, seats: noOfSeat }),
+        }
+      );
+      
         const data = await res.json();
         if (res.status === 200) {
           //reset the state on success
