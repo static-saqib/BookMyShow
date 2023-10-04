@@ -20,7 +20,7 @@ const BsState = (props) => {
     try {
         
         const res = await fetch(
-          "https://bookmyshow-phi-five.vercel.app/api/booking",
+          "https://bookmyshow-qvw4.onrender.com/api/booking",
           //`https://8000.onrender.com/api/booking`,
           //"http://localhost:8000/api/booking",
           {

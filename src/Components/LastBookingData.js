@@ -13,7 +13,8 @@ const LastBookingData = (props) => {
     try {
       setLoader(true)
       const res = await fetch(
-         "https://bookmyshow-phi-five.vercel.app/api/booking",
+        "https://bookmyshow-qvw4.onrender.com/api/booking",
+         //"https://bookmyshow-phi-five.vercel.app/api/booking",
          //"mongodb://127.0.0.1:27017/bookMovie",
          //"http://localhost:8000/api/booking",
         {
