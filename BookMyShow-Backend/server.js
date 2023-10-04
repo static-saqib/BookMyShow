@@ -13,7 +13,7 @@ app.use( cors() );
 
 // Connecting to database
 connection();
-//app.use( cors({
+//pp.use( cors({
     //origin:'http://localhost:3000',}) );
 
 
