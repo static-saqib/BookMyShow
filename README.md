@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# Book my show..
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a demo of real bookmyshow, where the user can book a movie with specified seats at a specified slot and get a confirmation that, wheteher booking was sucessful or not.
 
-## Available Scripts
+The movie booked by the user will be stored in database and is retrived and shown to the user.
 
-In the project directory, you can run:
+## Installation
+If you want to work on this project , clone this repo
 
-### `npm start`
+```bash
+git clone "https://github.com/static-saqib/BookMyShow.git"
+```
+Open this project on your local IDE and in the terminal do this commands one by one
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---For Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ ```
+cd book-my-show-main
+npm install
+npm start
 
-### `npm test`
+ ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For backend
 
-### `npm run build`
+ ```
+first step- cd book-my-show-main, second step- cd .\BookMyShow-Backend 
+npm run start
+(message show is connect the database mongodb)
+ ```
+In the backend you should connect with database server. This will start you frontend part on port - http://localhost:3000 and backend part running on port- http://localhost:8000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Reference
+Base URL
+https://bookmyshow-qvw4.onrender.com/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+check it this link https://bookmyshow-qvw4.onrender.com/api/booking
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Booking
 
-### `npm run eject`
+--get booking
+```http
+  GET /api/bookings
+  ```
+--post booking 
+Returns a list of all bookings stored in the database in JSON format.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```http
+  POST /api/bookings
+  ```
+  
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `movie`    | `string` | **Required**. selected movie |
+| `timeSlot`    | `string` | **Required**. selected time slot |
+| `seats`    | `string` | **Required**. selected seats |
+Returns the newly created booking in JSON format
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
+Here is the links of deployed project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For Frontend
+```https
+https://static-saqib-book-my-show.vercel.app/
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+For Backend
+```https
+https://bookmyshow-qvw4.onrender.com/api/booking
+```
 
-## Learn More
+By clicking on above links , you can see the project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## How to Use
+1. click on below link
+```https
+[bookmyshowApp](https://static-saqib-book-my-show.vercel.app/)
+```
+2. select the movie you would like to watch.
+3. select timeslot .
+4. select any seat type and and number of seats would you like to booked.
+5. click on ```Book Now```  button. If you want to change any selected field, then do changes before booking it.
+ After click on Book Now button you got succesfull booking message and your last booking details display on the screen under last booking details heading.
+ 
+## Environment Variables
+To run this project, you will need to add the following environment variables to your .env file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Note : your mongodb clustur connect key API_KEY
 
-### Code Splitting
+## For Backend
+MongoDb live connection string
+`MONGODBURI: mongodb+srv://<user_name>:<password>@mongodb_connection_string/database_name `
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+MongoDb local connection string (if you set application on localhost)
+`MONGODBURI = mongodb://localhost:27017/<database_name> `
 
-### Analyzing the Bundle Size
+COLLECTION_NAME = <collection_name>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+if application is running on localhost set node_env development or if it is on live set production NODE_ENV =  development (development || production)
+APP_PORT = 8000
 
-### Making a Progressive Web App
+api routes path
+GET_REQUEST = /api/booking POST_REQUEST = /api/booking
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## For Frontend
+`REACT_APP_API_LOCAL_PATH = http://localhost:3000`
 
-### Advanced Configuration
+`REACT_APP_API_LIVE_PATH = https://bookmyshow-qvw4.onrender.com/api/booking`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Tech Stack
+Client: React js, Bootstrap
 
-### Deployment
+Server: Node, Express
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+database: MongoDB
 
-### `npm run build` fails to minify
+## Link to website -> [BookMyShow](https://static-saqib-book-my-show.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Authors
+
+- [@Mohd Saqib](https://www.linkedin.com/in/mohd-saqib0077)
+(https://github.com/static-saqib)
+
+- [@Pranav Shinde](https://www.linkedin.com/in/pranav-shinde-94b031203/)
+(https://github.com/pranavshinde96)
+
+- [@Pooja Vishwakarma](https://www.linkedin.com/in/poojaVishwakarma)
+(https://github.com/PoojaVishwakarm)
+
+- [@Abhimanyu ](https://www.linkedin.com/in/abhimanyu086)
+(https://github.com/abhimanyu086)
+
+
+
+
+## Technologies that are used.
+
+- #### React  
+    This app is fully built on top of react library.
+- #### Axios / Fetch
+    Used for making api calls.
+
+##
+<h4 align="center">Thank You</h4>
+
+# bookmyshow
